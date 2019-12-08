@@ -8,6 +8,9 @@ class _Dashboar_pageState extends State<Dashboar_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:  AppBar(
+        title: Text("dashboard"),
+      ),
       body: Center(
         child: Text("hello"),
       ),
