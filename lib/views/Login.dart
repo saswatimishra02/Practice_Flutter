@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './dashboard.dart';
+import '../controllers/auth.dart';
 
 class Login_Page extends StatefulWidget {
   @override
@@ -31,8 +32,8 @@ class _Login_PageState extends State<Login_Page> {
                     return 'Please enter you email id';
                   }
                 },
-                onSaved: (value){
-                  username=value;
+                onSaved: (value) {
+                  username = value;
                 },
               ),
               TextFormField(
@@ -43,26 +44,25 @@ class _Login_PageState extends State<Login_Page> {
                     return 'Please enter you Password';
                   }
                 },
-                onSaved: (value){
-                  password=value;
+                onSaved: (value) {
+                  password = value;
                 },
               ),
               RaisedButton(
                 child: Text("LOGIN"),
                 onPressed: () {
-                  if (_formkey.currentState.validate()){
+                  if (_formkey.currentState.validate()) {
                     _formkey.currentState.save();
                     print(username);
                     print(password);
+                    Auth().login(username: username, password: password);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Dashboar_page()),
                     );
-                  }
-                  else{
+                  } else {
                     return;
                   }
-                    
                 },
                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
               ),
