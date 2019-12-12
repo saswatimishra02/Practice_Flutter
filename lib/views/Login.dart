@@ -16,8 +16,9 @@ class _Login_PageState extends State<Login_Page> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/login_bg.jpeg'),
-          ),
+              image: AssetImage('assets/login_bg.jpeg'),
+              fit: BoxFit.fill,
+              colorFilter: ColorFilter.mode(Colors.white54, BlendMode.screen)),
         ),
         padding: EdgeInsets.all(50),
         child: Form(
@@ -31,7 +32,11 @@ class _Login_PageState extends State<Login_Page> {
               ),
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(labelText: "Email Address"),
+                decoration: InputDecoration(
+                  labelText: "Email Address",
+                  labelStyle:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Please enter you email id';
@@ -43,7 +48,11 @@ class _Login_PageState extends State<Login_Page> {
               ),
               TextFormField(
                 obscureText: true,
-                decoration: InputDecoration(labelText: "Password"),
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  labelStyle:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Please enter you Password';
@@ -54,7 +63,15 @@ class _Login_PageState extends State<Login_Page> {
                 },
               ),
               RaisedButton(
-                child: Text("LOGIN"),
+                color: Colors.blueAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                child: Text(
+                  "LOGIN",
+                  style: TextStyle(
+                      color: Colors.white60, fontWeight: FontWeight.bold),
+                ),
                 onPressed: () {
                   if (_formkey.currentState.validate()) {
                     _formkey.currentState.save();
