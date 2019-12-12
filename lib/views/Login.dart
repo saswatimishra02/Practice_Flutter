@@ -14,6 +14,11 @@ class _Login_PageState extends State<Login_Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/login_bg.jpeg'),
+          ),
+        ),
         padding: EdgeInsets.all(50),
         child: Form(
           key: _formkey,
